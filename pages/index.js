@@ -4,14 +4,17 @@ import Head from 'next/head'
 //component
 import {Form} from '../components/form/form.js'
 
-async function Index() {
 
+function Index() {
+    
     async function getData(url) {
         const data = await fetch(url);
         return data.json()
     }
 
-    const data = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+    let [ data, setData ] = useState()
+    data = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+    console.log(data);
 
     return (
         <React.Fragment>
