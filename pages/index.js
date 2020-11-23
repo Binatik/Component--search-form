@@ -10,7 +10,7 @@ async function getData(url) {
 }
 
 function Index() {
-    const [data, setData] = useState(undefined);
+    const [data, setData] = useState(null);
 
     useEffect(() => {
         async function promiseDate() { 
@@ -18,7 +18,7 @@ function Index() {
             setData(fetchDate);
         }
         promiseDate().then(r => r);
-    },[data]);
+    },[]);
     //setData(async(prev) => prev + await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json'));
 
     return (
