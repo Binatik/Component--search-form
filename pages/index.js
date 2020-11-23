@@ -4,22 +4,27 @@ import Head from 'next/head'
 //component
 import {Form} from '../components/form/form.js'
 
+//Executing a request to the server
 async function getData(url) {
     const data = await fetch(url);
     return data.json()
+    //We received the data and returned it as a function.
 }
 
 function Index() {
+    //De-structuring the array.
     const [data, setData] = useState(null);
 
+
     useEffect(() => {
+        //In effect, we initialize an asynchronous function to get data to the state.
         async function promiseDate() { 
             const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+            //Getting data in state
             setData(fetchDate);
         }
         promiseDate().then(r => r);
     },[]);
-    //setData(async(prev) => prev + await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json'));
 
     return (
         <React.Fragment>
