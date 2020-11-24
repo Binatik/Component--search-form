@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import styles from '../../styles/SearchForm.module.scss'
+import formSty from '../../styles/SearchForm.module.scss'
+
+//component
+import {Selector} from './selector.js'
 
 export function Form({data, promiseDate}) {
-    function openSelect(){
 
-    }
     return (
         <React.Fragment>
             {console.log(data)}
             <form className="center-items forms">
                 <div className="forms__body wrapper">
-                    <h2 className={styles.title}>Критерии поиска: не установлены</h2>
+                    <h2 className={formSty.title}>Критерии поиска: не установлены</h2>
                     <button
-                        className={styles.btn}
+                        className={formSty.btn}
                         type={"button"}
                         onClick={promiseDate}>Заполнить форму</button>
+                    <Selector/>
                 </div>
             </form>
         </React.Fragment>
