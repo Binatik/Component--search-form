@@ -5,9 +5,10 @@ export function Selector({data}) {
 
     return (
         <React.Fragment>
-            <select className={selectorSty.body}>
-                <option>Пункт 1</option>
-                <option>Пункт 2</option>
+            <label form='Select' className={selectorSty.custom}/>
+            <select id="Select" name="Select" className={selectorSty.select}>
+                <option value="1" >Пункт 1</option>
+                <option value="2" >Пункт 2</option>
             </select>
         </React.Fragment>
     )

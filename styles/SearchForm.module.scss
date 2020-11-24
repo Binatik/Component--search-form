@@ -10,11 +10,11 @@ $textColorLink: #fff;
     text-transform: uppercase;
     transition: 0.2s;
 }
-.title{
+.title {
     color: $textColor;
 }
 
-.btn{
+.btn {
     @include btnStandard();
     position: relative;
     z-index: 1;
