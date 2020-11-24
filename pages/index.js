@@ -15,16 +15,11 @@ function Index() {
     //De-structuring the array.
     const [data, setData] = useState(null);
 
-
-    useEffect(() => {
-        //In effect, we initialize an asynchronous function to get data to the state.
-        async function promiseDate() { 
-            const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
-            //Getting data in state
-            setData(fetchDate);
-        }
-        promiseDate().then(r => r);
-    },[]);
+    async function promiseDate() {
+        const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+        //Getting data in state
+        setData(fetchDate);
+    }
 
     return (
         <React.Fragment>
@@ -32,7 +27,7 @@ function Index() {
                 <title>Form</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
-            <Form data={data}/>
+            <Form data={data} promiseDate={promiseDate}/>
         </React.Fragment>
     )
 }
