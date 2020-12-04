@@ -6,6 +6,7 @@ $textSelect: #fff;
   border: none;
   transition: 0.2s;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .custom {
@@ -31,20 +32,10 @@ $textSelect: #fff;
   padding: 12px 55px 15px 15px;
   font-size: 18px;
   color: #714BB9;
+}
 
-  &:after{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    line-height: 38px;
-    content: '\2228';
-    text-align: center;
-    color: #714BB9;
-    font-size: 24px;
-    border-left: 1px solid #3C1C78;
-    z-index: -1;
+.option {
+  &:hover {
+    background-color: yellow;
   }
-
 }

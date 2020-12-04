@@ -14,11 +14,19 @@ async function getData(url) {
 function Index() {
     //De-structuring the array.
     const [data, setData] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     async function promiseDate() {
-        const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+        setIsLoading(true);
+        try {
+            const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+            setData(fetchDate);
+        } catch (err) {
+            setIsError(true); //Это вроде как компонент с ошибкой.
+        } finally {
+            setIsLoading(false);
+        }
         //Getting data in state
-        setData(fetchDate);
     }
 
     return (
@@ -33,3 +41,10 @@ function Index() {
 }
 
 export default Index
+
+
+
+
+
+
+
