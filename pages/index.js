@@ -17,16 +17,15 @@ function Index() {
     const [isLoading, setIsLoading] = useState(false);
 
     async function promiseDate() {
-        setIsLoading(true);
         try {
             const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
+            setIsLoading(true);
             setData(fetchDate);
         } catch (err) {
-            setIsError(true); //Это вроде как компонент с ошибкой.
+            //setIsError(true); //Это вроде как компонент с ошибкой.
         } finally {
-            setIsLoading(false);
+           setIsLoading(false);
         }
-        //Getting data in state
     }
 
     return (
@@ -35,7 +34,7 @@ function Index() {
                 <title>Form</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
-            <Form data={data} promiseDate={promiseDate}/>
+            <Form data={ data } promiseDate={ promiseDate } loading={ isLoading }/>
         </React.Fragment>
     )
 }
