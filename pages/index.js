@@ -15,16 +15,17 @@ function Index() {
     //De-structuring the array.
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
+    const [error, setIsError] = useState(false);
 
     async function promiseDate() {
+        setIsLoading(true);
         try {
             const fetchDate = await getData('https://raw.githubusercontent.com/Binatik/SearchForm/main/data.json');
-            setIsLoading(true);
+            setIsLoading(false);
             setData(fetchDate);
+            console.log('Данные загружены!');
         } catch (err) {
-            //setIsError(true); //Это вроде как компонент с ошибкой.
-        } finally {
-           setIsLoading(false);
+            setIsError(true);
         }
     }
 
@@ -34,7 +35,7 @@ function Index() {
                 <title>Form</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
-            <Form data={ data } promiseDate={ promiseDate } loading={ isLoading }/>
+            <Form data={ data } promiseDate={ promiseDate } loadings={ [isLoading, error] }/>
         </React.Fragment>
     )
 }
