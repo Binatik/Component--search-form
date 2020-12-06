@@ -10,10 +10,10 @@ export function Form({data, promiseDate, loadings}) {
     const [loading, error] = loadings
 
     function getComponentSelect(){
-        if (loading === false){
+        if (loading === false && error !== true){
           return <Selector/>
         }
-        else if (loading) {
+        else if (loading && error !== true) {
             console.log('Загрузка данных');
         }
 
