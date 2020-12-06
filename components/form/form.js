@@ -7,6 +7,18 @@ import {Selector} from './selector.js'
 
 export function Form({data, promiseDate, loading}) {
 
+    function getComponent(){
+        if (loading){
+          return <Selector/>
+        }
+        else if (loading === false) {
+            console.log('Загрузка данных');
+        }
+        else {
+            return null;
+        }
+    }
+
     return (
         <React.Fragment>
             {console.log(loading)}
@@ -18,7 +30,7 @@ export function Form({data, promiseDate, loading}) {
                         className={formSty.btn}
                         type={"button"}
                         onClick={promiseDate}>Заполнить форму</button>
-                    { loading ? <Selector/> : console.log('Загрузка компонента.') }
+                    { getComponent() }
                 </div>
             </form>
         </React.Fragment>

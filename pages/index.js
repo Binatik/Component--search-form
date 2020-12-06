@@ -14,7 +14,7 @@ async function getData(url) {
 function Index() {
     //De-structuring the array.
     const [data, setData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(null);
 
     async function promiseDate() {
         try {
@@ -40,6 +40,8 @@ function Index() {
 }
 
 export default Index
+
+
 
 
 
