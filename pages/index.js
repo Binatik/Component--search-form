@@ -25,7 +25,6 @@ function Index() {
             setData(fetchDate);
             console.log('Данные загружены!');
         } catch (err) {
-            console.log('Ошибка');
             setIsError(true);
         }
     }
