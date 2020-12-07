@@ -7,8 +7,13 @@ export function Selector({data}) {
         <React.Fragment>
             <label form='Select' className={selectorSty.custom}/>
             <select id="Select" name="Select" className={selectorSty.select}>
-                <option className={selectorSty.option} value="1" >Пункт 1</option>
-                <option className={selectorSty.option} value="2" >Пункт 2</option>
+                {data?.items.map(({ name, id }, index) =>
+                    <option
+                        key={id}
+                        className={selectorSty.option}
+                        value={index} > {name}
+                    </option>
+                )}
             </select>
         </React.Fragment>
     )

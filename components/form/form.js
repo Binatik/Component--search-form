@@ -15,7 +15,7 @@ export function Form({data, promiseDate, loadings}) {
 
     function getComponentSelect(){
         if (loading === false && error !== true){
-          return <Selector/>
+          return <Selector data={data}/>
         }
         else if (loading && error !== true) {
             console.log('Загрузка данных');
