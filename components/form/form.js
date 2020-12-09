@@ -5,25 +5,27 @@ import formSty from '../../styles/SearchForm.module.scss'
 //component
 import {Selector} from './selector.js'
 import {LoaderFormError} from "./LoaderFormError";
+
+//Provider
 import {MainContext} from "../../pages";
 
-export function Form({data, loadings}) {
-    const promiseDate = useContext(MainContext);
-    const [loading, error] = loadings
+
+export function Form({ loading }) {
+    const { promiseDate, data } = useContext(MainContext);
+    const { isLoading, isError } = loading;
 
      function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     function getComponentSelect(){
-        if (loading === false && error !== true){
+        if (isLoading === false && isError !== true){
           return <Selector data={data}/>
         }
-        else if (loading && error !== true) {
+        else if (isLoading && isError !== true) {
             console.log('Загрузка данных');
         }
-
-        else if (error === true) {
+        else if (isError === true) {
             console.log('Ошибка');
             return <LoaderFormError sleep={sleep}/>
         }

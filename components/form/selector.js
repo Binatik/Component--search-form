@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import selectorSty from "../../styles/Selector.module.scss";
 
 export function Selector({data}) {
