@@ -11,6 +11,9 @@ async function getData(url) {
     //We received the data and returned it as a function.
 }
 
+//Provider
+export const MainContext = React.createContext()
+
 function Index() {
     //De-structuring the array.
     const [data, setData] = useState(null);
@@ -35,7 +38,9 @@ function Index() {
                 <title>Form</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
-            <Form data={ data } promiseDate={ promiseDate } loadings={ [isLoading, error] }/>
+            <MainContext.Provider value={promiseDate}>
+                <Form data={ data } loadings={ [isLoading, error] }/>
+            </MainContext.Provider>
         </React.Fragment>
     )
 }

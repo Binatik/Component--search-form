@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import formSty from '../../styles/SearchForm.module.scss'
 
 //component
 import {Selector} from './selector.js'
 import {LoaderFormError} from "./LoaderFormError";
+import {MainContext} from "../../pages";
 
-export function Form({data, promiseDate, loadings}) {
+export function Form({data, loadings}) {
+    const promiseDate = useContext(MainContext);
     const [loading, error] = loadings
 
      function sleep(ms) {
@@ -44,3 +46,7 @@ export function Form({data, promiseDate, loadings}) {
         </React.Fragment>
     )
 }
+
+
+
+
