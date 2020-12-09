@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 
 import formSty from '../../styles/SearchForm.module.scss'
 
@@ -13,6 +13,7 @@ import {MainContext} from "../../pages";
 export function Form({ loading }) {
     const { promiseDate, data } = useContext(MainContext);
     const { isLoading, isError } = loading;
+    const [ idOption, setIdOption ] = useState(null);
 
      function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -20,7 +21,7 @@ export function Form({ loading }) {
 
     function getComponentSelect(){
         if (isLoading === false && isError !== true){
-          return <Selector data={data}/>
+          return <Selector dataList={ {data, setIdOption} }/>
         }
         else if (isLoading && isError !== true) {
             console.log('Загрузка данных');
@@ -34,11 +35,12 @@ export function Form({ loading }) {
 
     return (
         <React.Fragment>
+            {console.log(idOption)}
             <form className="center-items forms">
                 <div className="forms__body wrapper">
                     <h2 className={formSty.title}>Критерии поиска: не установлены</h2>
                     <button
-                        className={formSty.btn}
+                        className={`${formSty.btn_form} btn`}
                         type={"button"}
                         onClick={promiseDate}>Заполнить форму
                     </button>
