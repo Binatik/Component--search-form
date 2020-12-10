@@ -40,7 +40,10 @@ export function Form({ loading }) {
         <React.Fragment>
             <form className="center-items forms">
                 <div className="forms__body wrapper">
-                    {object === null ? <h2 className={formSty.title}>Критерии поиска: не установлены</h2> : <Request/>}
+                    {object === null ?
+                        <h2 className={formSty.title}>Критерии поиска: не установлены</h2> :
+                        <Request value={object} />
+                    }
                     <button
                         className={`${formSty.btn_form} btn`}
                         type={"button"}
