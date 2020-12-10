@@ -3,16 +3,20 @@ import selectorSty from "../../styles/Selector.module.scss";
 
 export function Selector({dataList}) {
     const selectRef = useRef(null)
-    const { data, setIdOption } = dataList;
+    const { data, setObject } = dataList;
 
     function saveData(){
-        const id = selectRef.current[selectRef.current.selectedIndex + 1].value
-        checkId(id)
-        //setIdOption(selectRef.current[selectRef.current.selectedIndex + 1].value)
+        const id = +selectRef.current[selectRef.current.selectedIndex].value
+        setObject(getObject(id));
     }
-    
-    function checkId(value){
 
+    function getObject(value){
+        for(let i = 0; i<data.items.length; i++){
+            if(i === value){
+                console.log('test');
+                return data?.items[i];
+            }
+        }
     }
 
     return (

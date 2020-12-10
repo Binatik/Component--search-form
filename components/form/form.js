@@ -13,7 +13,9 @@ import {MainContext} from "../../pages";
 export function Form({ loading }) {
     const { promiseDate, data } = useContext(MainContext);
     const { isLoading, isError } = loading;
-    const [ idOption, setIdOption ] = useState(null);
+    const [ object, setObject ] = useState(null);
+
+    console.log(object);
 
      function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -21,7 +23,7 @@ export function Form({ loading }) {
 
     function getComponentSelect(){
         if (isLoading === false && isError !== true){
-          return <Selector dataList={ {data, setIdOption} }/>
+          return <Selector dataList={ {data, setObject} }/>
         }
         else if (isLoading && isError !== true) {
             console.log('Загрузка данных');
@@ -35,7 +37,6 @@ export function Form({ loading }) {
 
     return (
         <React.Fragment>
-            {console.log(idOption)}
             <form className="center-items forms">
                 <div className="forms__body wrapper">
                     <h2 className={formSty.title}>Критерии поиска: не установлены</h2>
