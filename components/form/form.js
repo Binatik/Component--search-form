@@ -5,6 +5,7 @@ import formSty from '../../styles/SearchForm.module.scss'
 //component
 import {Selector} from './selector.js'
 import {LoaderFormError} from "./LoaderFormError";
+import {Request} from "./request";
 
 //Provider
 import {MainContext} from "../../pages";
@@ -39,7 +40,7 @@ export function Form({ loading }) {
         <React.Fragment>
             <form className="center-items forms">
                 <div className="forms__body wrapper">
-                    <h2 className={formSty.title}>Критерии поиска: не установлены</h2>
+                    {object === null ? <h2 className={formSty.title}>Критерии поиска: не установлены</h2> : <Request/>}
                     <button
                         className={`${formSty.btn_form} btn`}
                         type={"button"}
