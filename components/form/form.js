@@ -36,14 +36,16 @@ export function Form({ loading }) {
         return null;
     }
 
+    function sendText(error){
+        return object !== null ? 'Критерии поиска' : `Критерии поиска ${error}`;
+    }
+
     return (
         <React.Fragment>
             <form className="center-items forms">
                 <div className="forms__body wrapper">
-                    {object === null ?
-                        <h2 className={formSty.title}>Критерии поиска: не установлены</h2> :
-                        <Request value={object} />
-                    }
+                    <h2 className={formSty.title}>{ sendText('не установлены') }</h2>
+                    { object !== null ? <Request value={object}/> : null }
                     <button
                         className={`${formSty.btn_form} btn`}
                         type={"button"}
