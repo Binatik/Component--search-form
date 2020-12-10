@@ -38,7 +38,7 @@ function Index() {
                 <title>Form</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
             </Head>
-            <MainContext.Provider value={ {data, promiseDate} }>
+            <MainContext.Provider value={ {data, promiseDate, setData} }>
                 <Form loading={ {isLoading, isError} }/>
             </MainContext.Provider>
         </React.Fragment>

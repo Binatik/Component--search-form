@@ -12,18 +12,16 @@ import {MainContext} from "../../pages";
 
 
 export function Form({ loading }) {
-    const { promiseDate, data } = useContext(MainContext);
+    const { promiseDate, data, setData } = useContext(MainContext);
     const { isLoading, isError } = loading;
     const [ object, setObject ] = useState(null);
-
-    console.log(object);
 
      function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     function getComponentSelect(){
-        if (isLoading === false && isError !== true){
+        if (isLoading === false && isError !== true && data !== null){
           return <Selector dataList={ {data, setObject} }/>
         }
         else if (isLoading && isError !== true) {
@@ -45,7 +43,7 @@ export function Form({ loading }) {
             <form className="center-items forms">
                 <div className="forms__body wrapper">
                     <h2 className={formSty.title}>{ sendText('не установлены') }</h2>
-                    { object !== null ? <Request value={object}/> : null }
+                    { object !== null ? <Request value={object} query={ {setObject, setData} }/> : null }
                     <button
                         className={`${formSty.btn_form} btn`}
                         type={"button"}
