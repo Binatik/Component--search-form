@@ -1,5 +1,5 @@
 import React from 'react';
-import formSty from "../../styles/SearchForm.module.scss";
+import requestSty from "../../styles/Request.module.scss";
 
 export function Request({value, query}) {
     const { id, name } = value
@@ -15,7 +15,7 @@ export function Request({value, query}) {
         <React.Fragment>
             {value ? <p>Список: {name} (id# {id})</p> : null}
             <button
-                className={`btn`}
+                className={`${requestSty.btn_request} btn`}
                 type={"button"}
                 onClick={changeQuery}>Изменить запрос
             </button>
