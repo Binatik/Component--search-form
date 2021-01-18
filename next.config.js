@@ -1,3 +1,3 @@
-//module.exports = {
-//    basePath: '/SearchForm/tree/build', //note host
-//}
+module.exports = {
+    basePath: 'https://binatik.github.io/Component--search-form',
+}
