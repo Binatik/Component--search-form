@@ -1,3 +1,4 @@
-module.exports = {
-    basePath: 'https://binatik.github.io/Component--search-form',
-}
+//module.exports = {
+//    host: NOW_URL ? `https://${alias}` : 'http://localhost:3000',
+//    basePath: '/account',
+//}
