@@ -5,7 +5,7 @@ export function LoaderFormError({sleep}) {
         await sleep(time);
         location.replace(host);
     }
-    reloadPage('http://localhost:3000/', 3000);
+    reloadPage('http://localhost:3000/', 3000).then(r => r);
 
     return (
         <React.Fragment>
